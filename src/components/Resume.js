@@ -99,14 +99,18 @@ const Resume = () => {
     ],
     education: [
       {
-        degree: "Coursework in Computer Science",
+        degree: "Computer Science & GIS",
         school: "Northwest Missouri State University",
-        location: "Maryville, MO"
+        location: "Maryville, MO",
+        duration: "1993-1997",
+        additional: "Athletics: Div. II Baseball"
       },
       {
         degree: "Associate of Arts",
-        school: "Maple Woods Community College",
-        location: "Lee's Summit, MO"
+        school: "Maple Woods, Longview Community College",
+        location: "Lee's Summit, MO",
+        duration: "1991-1993",
+        additional: "Athletics: JC Div. II Baseball"
       }
     ]
   };
@@ -224,13 +228,21 @@ const Resume = () => {
           <h3 className="text-2xl font-bold text-primary-800 mb-4 border-b-2 border-primary-200 pb-2">
             Education
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {resumeData.education.map((edu, index) => (
-              <div key={index}>
-                <h4 className="font-semibold text-gray-800">{edu.degree}</h4>
-                <p className="text-gray-600">
-                  {edu.school} • {edu.location}
-                </p>
+              <div key={index} className="border-l-4 border-primary-300 pl-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                  <div>
+                    <h4 className="font-semibold text-gray-800">{edu.degree}</h4>
+                    <p className="text-gray-600">
+                      {edu.school} • {edu.location}
+                    </p>
+                    {edu.additional && (
+                      <p className="text-primary-600 text-sm mt-1">{edu.additional}</p>
+                    )}
+                  </div>
+                  <span className="text-gray-600 text-sm font-medium">{edu.duration}</span>
+                </div>
               </div>
             ))}
           </div>
