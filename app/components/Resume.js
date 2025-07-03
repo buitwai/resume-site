@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+'use client'
+
+import { useState } from 'react';
 
 const Resume = () => {
   const [expandedJobs, setExpandedJobs] = useState({});
