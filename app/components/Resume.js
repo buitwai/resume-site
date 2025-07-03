@@ -127,8 +127,29 @@ const Resume = () => {
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-4">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary-300 to-accent-400 rounded-full flex items-center justify-center text-primary-900 text-2xl font-bold shadow-lg">
-                DH
+              <div className="relative w-20 h-20 lg:w-24 lg:h-24">
+                <div className="w-full h-full bg-gradient-to-br from-primary-300 to-accent-400 rounded-full p-1 shadow-lg">
+                  <div className="w-full h-full bg-white rounded-full overflow-hidden">
+                    <img 
+                      src="/images/profile.jpg" 
+                      alt="Dino Horn" 
+                      className="w-full h-full object-cover object-center"
+                      style={{ objectPosition: 'center center' }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-full h-full bg-gradient-to-br from-primary-300 to-accent-400 rounded-full flex items-center justify-center text-primary-900 text-xl lg:text-2xl font-bold" style={{ display: 'none' }}>
+                      DH
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-accent-500 rounded-full border-2 border-white flex items-center justify-center">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
               </div>
               <div>
                 <h1 className="text-4xl lg:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-primary-100">
