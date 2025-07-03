@@ -132,15 +132,17 @@ const Resume = () => {
                   <div className="w-full h-full bg-white rounded-full overflow-hidden">
                     <img 
                       src="/images/profile.jpg" 
-                      alt="Dino Horn" 
-                      className="w-full h-full object-cover object-center"
-                      style={{ objectPosition: 'center center' }}
+                      alt="Dino Hadzic"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
+                        e.target.src = '/images/profile.svg';
                       }}
                     />
-                    <div className="w-full h-full bg-gradient-to-br from-primary-300 to-accent-400 rounded-full flex items-center justify-center text-primary-900 text-xl lg:text-2xl font-bold" style={{ display: 'none' }}>
+                    <div 
+                      className="w-full h-full bg-gradient-to-br from-primary-300 to-accent-400 rounded-full flex items-center justify-center text-white text-xl lg:text-2xl font-bold hidden"
+                      id="fallback-initials"
+                      style={{ marginTop: '-100%' }}
+                    >
                       DH
                     </div>
                   </div>

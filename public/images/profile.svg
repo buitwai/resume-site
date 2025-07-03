@@ -1,0 +1,54 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Modern gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle inner gradient -->
+    <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1F2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Pattern for texture -->
+    <pattern id="dots" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.5" fill="#3B82F6" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="98" fill="url(#bgGradient)" opacity="0.9"/>
+  
+  <!-- Inner dark circle -->
+  <circle cx="100" cy="100" r="92" fill="url(#innerGradient)"/>
+  
+  <!-- Subtle pattern overlay -->
+  <circle cx="100" cy="100" r="92" fill="url(#dots)"/>
+  
+  <!-- User icon silhouette -->
+  <g transform="translate(100, 100)">
+    <!-- Head -->
+    <circle cx="0" cy="-20" r="28" fill="#374151" opacity="0.8"/>
+    <!-- Body -->
+    <path d="M -40 30 Q -40 10 -25 5 Q -25 0 -20 0 L 20 0 Q 25 0 25 5 Q 40 10 40 30 L 40 60 L -40 60 Z" 
+          fill="#374151" 
+          opacity="0.8"/>
+  </g>
+  
+  <!-- Initials with modern styling -->
+  <text x="100" y="108" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" text-anchor="middle" fill="#E5E7EB" opacity="0.9">
+    DH
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="30" cy="30" r="3" fill="#3B82F6" opacity="0.6"/>
+  <circle cx="170" cy="30" r="3" fill="#8B5CF6" opacity="0.6"/>
+  <circle cx="30" cy="170" r="3" fill="#EC4899" opacity="0.6"/>
+  <circle cx="170" cy="170" r="3" fill="#3B82F6" opacity="0.6"/>
+  
+  <!-- Subtle glow effect -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#bgGradient)" stroke-width="0.5" opacity="0.5"/>
+</svg>
