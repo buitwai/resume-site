@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import { GeometricPattern, WavePattern, CircuitPattern, HexagonPattern, FloatingElements } from './BackgroundSVGs';
 
 const Resume = () => {
   const [expandedJobs, setExpandedJobs] = useState({});
@@ -118,61 +119,117 @@ const Resume = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto bg-white shadow-lg print:shadow-none">
-      {/* Header */}
-      <header className="bg-primary-800 text-white p-8 print:p-6">
-        <h1 className="text-4xl font-bold mb-2">{resumeData.name}</h1>
-        <h2 className="text-2xl font-light mb-4">{resumeData.title}</h2>
-        <div className="flex flex-wrap gap-4 text-sm">
-          <a href={`tel:${resumeData.contact.phone}`} className="flex items-center gap-1 hover:underline">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            {resumeData.contact.phone}
-          </a>
-          <a href={`mailto:${resumeData.contact.email}`} className="flex items-center gap-1 hover:underline">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            {resumeData.contact.email}
-          </a>
-          <span className="flex items-center gap-1">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            {resumeData.contact.location}
-          </span>
+    <div className="max-w-6xl mx-auto bg-white shadow-2xl print:shadow-none relative overflow-hidden">
+      {/* Header with Gradient and Pattern */}
+      <header className="relative bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 text-white p-8 print:p-6 overflow-hidden">
+        <GeometricPattern className="text-white opacity-20" />
+        <FloatingElements />
+        <div className="relative z-10">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center space-x-4">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary-300 to-accent-400 rounded-full flex items-center justify-center text-primary-900 text-2xl font-bold shadow-lg">
+                DH
+              </div>
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-primary-100">
+                  {resumeData.name}
+                </h1>
+                <h2 className="text-xl lg:text-2xl font-light text-primary-100">
+                  {resumeData.title}
+                </h2>
+              </div>
+            </div>
+            <div className="hidden lg:block">
+              <CircuitPattern className="text-primary-300 w-32 h-32" />
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm lg:text-base">
+            <a href={`tel:${resumeData.contact.phone}`} className="flex items-center gap-2 p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-all duration-300 group">
+              <div className="w-8 h-8 bg-accent-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              {resumeData.contact.phone}
+            </a>
+            
+            <a href={`mailto:${resumeData.contact.email}`} className="flex items-center gap-2 p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-all duration-300 group">
+              <div className="w-8 h-8 bg-accent-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              {resumeData.contact.email}
+            </a>
+            
+            <div className="flex items-center gap-2 p-3 bg-white/10 backdrop-blur-sm rounded-lg">
+              <div className="w-8 h-8 bg-accent-400 rounded-full flex items-center justify-center">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              {resumeData.contact.location}
+            </div>
+          </div>
         </div>
+        <WavePattern className="text-primary-600 absolute bottom-0 left-0" />
       </header>
 
-      <div className="p-8 print:p-6 space-y-8">
+      <div className="p-8 print:p-6 space-y-12 relative">
+        <FloatingElements />
+        
         {/* Summary */}
-        <section>
-          <h3 className="text-2xl font-bold text-primary-800 mb-3 border-b-2 border-primary-200 pb-2">
-            Professional Summary
-          </h3>
-          <p className="text-gray-700 leading-relaxed">{resumeData.summary}</p>
+        <section className="relative">
+          <div className="flex items-center gap-4 mb-6">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-primary-800 to-secondary-700 bg-clip-text text-transparent">
+              Professional Summary
+            </h3>
+            <div className="flex-1 h-px bg-gradient-to-r from-primary-300 to-transparent"></div>
+          </div>
+          <div className="relative p-6 bg-gradient-to-br from-secondary-50 to-primary-50 rounded-xl border border-secondary-200 shadow-lg">
+            <HexagonPattern className="text-primary-200 absolute inset-0" />
+            <p className="text-secondary-700 leading-relaxed text-lg relative z-10">{resumeData.summary}</p>
+          </div>
         </section>
 
         {/* Technical Skills */}
-        <section>
-          <h3 className="text-2xl font-bold text-primary-800 mb-4 border-b-2 border-primary-200 pb-2">
-            Technical Skills
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {Object.entries(resumeData.skills).map(([category, skills]) => (
-              <div key={category} className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-primary-700 mb-2">{category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, index) => (
-                    <span
-                      key={index}
-                      className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+        <section className="relative">
+          <div className="flex items-center gap-4 mb-6">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-primary-800 to-secondary-700 bg-clip-text text-transparent">
+              Technical Skills
+            </h3>
+            <div className="flex-1 h-px bg-gradient-to-r from-primary-300 to-transparent"></div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {Object.entries(resumeData.skills).map(([category, skills], index) => (
+              <div key={category} className="relative group">
+                <div className="p-6 bg-gradient-to-br from-white to-secondary-50 rounded-xl border border-secondary-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${
+                      index % 3 === 0 ? 'from-primary-400 to-primary-600' :
+                      index % 3 === 1 ? 'from-accent-400 to-accent-600' :
+                      'from-secondary-400 to-secondary-600'
+                    }`}></div>
+                    <h4 className="font-bold text-lg text-secondary-800">{category}</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                          idx % 3 === 0 
+                            ? 'bg-primary-100 text-primary-800 border border-primary-200 hover:bg-primary-200' 
+                            : idx % 3 === 1
+                            ? 'bg-accent-100 text-accent-800 border border-accent-200 hover:bg-accent-200'
+                            : 'bg-secondary-100 text-secondary-800 border border-secondary-200 hover:bg-secondary-200'
+                        }`}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -180,70 +237,111 @@ const Resume = () => {
         </section>
 
         {/* Experience */}
-        <section>
-          <h3 className="text-2xl font-bold text-primary-800 mb-4 border-b-2 border-primary-200 pb-2">
-            Professional Experience
-          </h3>
-          <div className="space-y-6">
+        <section className="relative">
+          <div className="flex items-center gap-4 mb-8">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-primary-800 to-secondary-700 bg-clip-text text-transparent">
+              Professional Experience
+            </h3>
+            <div className="flex-1 h-px bg-gradient-to-r from-primary-300 to-transparent"></div>
+          </div>
+          <div className="space-y-8">
             {resumeData.experience.map((job, index) => (
-              <div key={index} className="border-l-4 border-primary-300 pl-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-800">
-                      {job.position}
-                      {job.current && (
-                        <span className="ml-2 text-sm bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                          Current
-                        </span>
-                      )}
-                    </h4>
-                    <p className="text-primary-600 font-medium">
-                      {job.company} • {job.location}
-                    </p>
+              <div key={index} className="relative group">
+                <div className="flex">
+                  <div className="flex flex-col items-center mr-6">
+                    <div className={`w-4 h-4 rounded-full ${job.current ? 'bg-accent-500' : 'bg-primary-500'} ring-4 ring-white shadow-lg`}></div>
+                    {index < resumeData.experience.length - 1 && (
+                      <div className="w-px h-full bg-gradient-to-b from-primary-300 to-secondary-200 mt-2"></div>
+                    )}
                   </div>
-                  <span className="text-gray-600 text-sm font-medium">{job.duration}</span>
+                  
+                  <div className="flex-1 pb-8">
+                    <div className="p-6 bg-gradient-to-br from-white to-secondary-50 rounded-xl border border-secondary-200 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h4 className="text-xl font-bold text-secondary-800">
+                              {job.position}
+                            </h4>
+                            {job.current && (
+                              <span className="px-3 py-1 text-xs font-bold bg-gradient-to-r from-accent-400 to-accent-600 text-white rounded-full shadow-lg animate-pulse">
+                                Current
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-primary-600 font-semibold text-lg mb-1">
+                            {job.company}
+                          </p>
+                          <p className="text-secondary-500 font-medium">
+                            {job.location}
+                          </p>
+                        </div>
+                        <div className="mt-2 lg:mt-0">
+                          <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-800 text-sm font-medium rounded-lg">
+                            {job.duration}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className={`transition-all duration-300 ${!expandedJobs[index] && index > 2 ? 'hidden print:block' : ''}`}>
+                        <ul className="space-y-2">
+                          {job.responsibilities.map((resp, idx) => (
+                            <li key={idx} className="flex items-start gap-3 text-secondary-700 leading-relaxed">
+                              <div className="w-2 h-2 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full mt-2 flex-shrink-0"></div>
+                              {resp}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      {index > 2 && (
+                        <button
+                          onClick={() => toggleJobExpansion(index)}
+                          className="mt-4 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-medium rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200 hover:scale-105 print:hidden shadow-lg"
+                        >
+                          {expandedJobs[index] ? '− Show Less' : '+ Show More'}
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                
-                <div className={`mt-2 ${!expandedJobs[index] && index > 2 ? 'hidden print:block' : ''}`}>
-                  <ul className="list-disc list-inside space-y-1 text-gray-700">
-                    {job.responsibilities.map((resp, idx) => (
-                      <li key={idx} className="leading-relaxed">{resp}</li>
-                    ))}
-                  </ul>
-                </div>
-                
-                {index > 2 && (
-                  <button
-                    onClick={() => toggleJobExpansion(index)}
-                    className="mt-2 text-primary-600 hover:text-primary-800 text-sm font-medium print:hidden"
-                  >
-                    {expandedJobs[index] ? '- Show Less' : '+ Show More'}
-                  </button>
-                )}
               </div>
             ))}
           </div>
         </section>
 
         {/* Education */}
-        <section>
-          <h3 className="text-2xl font-bold text-primary-800 mb-4 border-b-2 border-primary-200 pb-2">
-            Education
-          </h3>
-          <div className="space-y-4">
+        <section className="relative">
+          <div className="flex items-center gap-4 mb-6">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-primary-800 to-secondary-700 bg-clip-text text-transparent">
+              Education
+            </h3>
+            <div className="flex-1 h-px bg-gradient-to-r from-primary-300 to-transparent"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {resumeData.education.map((edu, index) => (
-              <div key={index} className="border-l-4 border-primary-300 pl-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
-                  <div>
-                    <h4 className="font-semibold text-gray-800">{edu.degree}</h4>
-                    <p className="text-gray-600">
-                      {edu.school} • {edu.location}
-                    </p>
-                    {edu.additional && (
-                      <p className="text-primary-600 text-sm mt-1">{edu.additional}</p>
-                    )}
+              <div key={index} className="relative group">
+                <div className="p-6 bg-gradient-to-br from-white to-primary-50 rounded-xl border border-primary-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg text-secondary-800 mb-1">{edu.degree}</h4>
+                      <p className="text-primary-600 font-semibold">
+                        {edu.school}
+                      </p>
+                      <p className="text-secondary-500 text-sm">
+                        {edu.location}
+                      </p>
+                    </div>
+                    <span className="px-3 py-1 bg-gradient-to-r from-accent-100 to-accent-200 text-accent-800 text-sm font-medium rounded-lg">
+                      {edu.duration}
+                    </span>
                   </div>
-                  <span className="text-gray-600 text-sm font-medium">{edu.duration}</span>
+                  {edu.additional && (
+                    <div className="flex items-center gap-2 mt-3 p-2 bg-accent-50 rounded-lg border border-accent-200">
+                      <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                      <p className="text-accent-700 text-sm font-medium">{edu.additional}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
